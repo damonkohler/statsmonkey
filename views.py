@@ -3,8 +3,8 @@ from google.appengine.ext import db
 import pickle
 
 class Chart(db.Model):
-  key = db.StringProperty(required=True)
-  data = db.BlogProperty()
+  id = db.StringProperty(required=True)
+  data = db.BlobProperty()
 
 
 def index(request):
