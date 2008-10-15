@@ -18,7 +18,7 @@
 
 import copy
 
-from graphy import common
+import common
 
 
 class BarStyle(object):

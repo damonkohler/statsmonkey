@@ -19,12 +19,12 @@
 import string
 import unittest
 
-from graphy import common
-from graphy import pie_chart
-from graphy import bar_chart
-from graphy import line_chart
-from graphy import formatters
-from graphy.backends import google_chart_api
+import common
+import pie_chart
+import bar_chart
+import line_chart
+import formatters
+from backends import google_chart_api
 
 # TODO: Once file reorganization is finished, move this into several
 # smaller tests.

@@ -19,7 +19,7 @@
 import copy
 import warnings
 
-from graphy import formatters
+import formatters
 
 
 class Marker(object):

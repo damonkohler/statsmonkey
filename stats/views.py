@@ -1,4 +1,4 @@
-import pickle 
+import pickle
 
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
@@ -9,10 +9,6 @@ from stats import models
 
 def index(request):
   return list(request)
-  #data = [2, 4, 7, 7, 4, 6, 8, 2, 1, 2, 5, 8, 8]
-  #chart = google_chart_api.LineChart(data)
-  #context = {'chart': chart.display.Img(300, 200)}
-  #return render_to_response('stats/index.html', context)
 
 
 def add(request, id, key, value):

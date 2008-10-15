@@ -15,7 +15,6 @@
 # Django settings for google-app-engine-django project.
 
 import os
-import sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -75,9 +74,9 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-#    'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.CommonMiddleware',
 #    'django.contrib.sessions.middleware.SessionMiddleware',
-#    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
 #    'django.middleware.doc.XViewMiddleware',
 )
 

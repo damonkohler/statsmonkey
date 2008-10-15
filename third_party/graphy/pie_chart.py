@@ -18,7 +18,7 @@
 
 import warnings
 
-from graphy import common
+import common
 
 
 class Segment(common.DataSeries):

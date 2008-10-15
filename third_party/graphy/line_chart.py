@@ -19,7 +19,7 @@
 import copy
 import warnings
 
-from graphy import common
+import common
 
 
 class LineStyle(object):
