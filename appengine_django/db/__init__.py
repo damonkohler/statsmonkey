@@ -12,9 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf.urls.defaults import *
-
-urlpatterns = patterns('views',
-  (r'^', 'index'),
-  (r'^/add', 'add'),
-)
+# Explicitly set the name of this package to "appengine".
+#
+# The rationale for this is so that Django can refer to the database as
+# "appengine" even though at a filesystem level it appears as the "db" package
+# within the appengine_django package.
+__name__ = "appengine"

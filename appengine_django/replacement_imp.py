@@ -1,3 +1,5 @@
+#!/usr/bin/python2.4
+#
 # Copyright 2008 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,9 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf.urls.defaults import *
+"""This file acts as a very minimal replacement for the 'imp' module.
 
-urlpatterns = patterns('views',
-  (r'^', 'index'),
-  (r'^/add', 'add'),
-)
+It contains only what Django expects to use and does not actually implement the
+same functionality as the real 'imp' module.
+"""
+
+
+def find_module(name, path=None):
+  """Django needs imp.find_module, but it works fine if nothing is found."""
+  raise ImportError
