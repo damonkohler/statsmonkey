@@ -15,6 +15,8 @@
 # Django settings for google-app-engine-django project.
 
 import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '3rd_party'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

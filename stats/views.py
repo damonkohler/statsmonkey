@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 from google.appengine.ext import db
 import pickle
 
@@ -6,7 +7,7 @@ from stats import models
 
 
 def index(request):
-  return HttpResponse("Hello world!")
+  return render_to_response('stats/index.html', {})
 
 
 def add(key, value):

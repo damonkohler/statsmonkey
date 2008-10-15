@@ -25,6 +25,8 @@ import os
 import sys
 import logging
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '3rd_party'))
+
 from appengine_django import InstallAppengineHelperForDjango
 InstallAppengineHelperForDjango()
 
