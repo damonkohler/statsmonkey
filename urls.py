@@ -16,7 +16,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('stats.views',
   (r'^$', 'index'),
-  (r'^add/(\w+)/(\d+)/(\d+)/?', 'add'),
+  (r'^add/(\w+)/(\d+)/([0-9.\-]+)/?', 'add'),
   (r'^list/?', 'list'),
   (r'^show/(\w+)/?', 'show'),
 )
