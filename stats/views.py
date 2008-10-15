@@ -10,4 +10,4 @@ def index(request):
 
 
 def add(key, value):
-  m = models.Chart().gql('WHERE key = :key', key=key)
+  m = models.Chart.get_by_id(key)
