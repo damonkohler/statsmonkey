@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from google.appengine.ext import db
 
 class Chart(db.Model):
+  # TODO: rename id to name
   id = db.StringProperty(required=True)
   data = db.BlobProperty()
 
@@ -17,3 +18,7 @@ class Chart(db.Model):
     if c:
       return c
     return cls(id=id)
+
+  @classmethod
+  def get_all(cls):
+    return cls.all().fetch(1000)
