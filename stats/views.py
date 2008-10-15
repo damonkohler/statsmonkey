@@ -1,20 +1,14 @@
-import pickle import sys
-import os
-
-sys.path.append(os.path.join(os.path.dirname(__file__), 'third_party'))
-
+import pickle 
 
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from google.appengine.ext import db
 
-from third_party.graphy.backends import google_chart_api
-
 from stats import models
 
 
 def index(request):
-  return HttpResponseRedirect('list')
+  return list(request)
   #data = [2, 4, 7, 7, 4, 6, 8, 2, 1, 2, 5, 8, 8]
   #chart = google_chart_api.LineChart(data)
   #context = {'chart': chart.display.Img(300, 200)}

@@ -17,8 +17,6 @@
 import os
 import sys
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'third_party'))
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 

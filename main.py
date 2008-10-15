@@ -28,8 +28,6 @@ import logging
 from appengine_django import InstallAppengineHelperForDjango
 InstallAppengineHelperForDjango()
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'third_party'))
-
 # Google App Engine imports.
 from google.appengine.ext.webapp import util
 
@@ -39,6 +37,8 @@ import django.core.handlers.wsgi
 def main():
   # Create a Django application for WSGI.
   application = django.core.handlers.wsgi.WSGIHandler()
+
+  sys.path.append(os.path.join(os.path.dirname(__file__), 'third_party'))
 
   # Run the WSGI CGI handler with that application.
   util.run_wsgi_app(application)
