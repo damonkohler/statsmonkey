@@ -27,10 +27,10 @@ import string
 import urllib
 import warnings
 
-import common
-import line_chart
-import bar_chart
-import pie_chart
+from third_party.graphy import common
+from third_party.graphy import line_chart
+from third_party.graphy import bar_chart
+from third_party.graphy import pie_chart
 
 
 # TODO: Find a better representation
