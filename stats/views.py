@@ -1,7 +1,8 @@
+import pickle
+
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from google.appengine.ext import db
-import pickle
 
 from stats import models
 
