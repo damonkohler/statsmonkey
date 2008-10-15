@@ -1,6 +1,7 @@
+import pickle
+
 from django.http import HttpResponse
 from google.appengine.ext import db
-import pickle
 
 class Chart(db.Model):
   id = db.StringProperty(required=True)
