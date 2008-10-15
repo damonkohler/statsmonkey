@@ -14,7 +14,7 @@
 
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('views',
+urlpatterns = patterns('stats.views',
   (r'^', 'index'),
   (r'^/add', 'add'),
 )

@@ -7,9 +7,3 @@ class Chart(db.Model):
   data = db.BlobProperty()
 
 
-def index(request):
-  return HttpResponse("Hello world!")
-
-
-def add(key, value):
-  m = Chart().gql('WHERE key = :key', key=key)
