@@ -38,8 +38,6 @@ def main():
   # Create a Django application for WSGI.
   application = django.core.handlers.wsgi.WSGIHandler()
 
-  sys.path.append(os.path.join(os.path.dirname(__file__), 'third_party'))
-
   # Run the WSGI CGI handler with that application.
   util.run_wsgi_app(application)
 
