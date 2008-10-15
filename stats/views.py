@@ -1,7 +1,7 @@
 import pickle
 import sys
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
 from google.appengine.ext import db
 
@@ -20,13 +20,9 @@ def index(request):
 
 def add(request, id, key, value):
   c = models.Chart.get_or_create(id)
-  data = {}
-  if c.data:
-    data = pickle.loads(c.data)
-  data[key] = value
-  c.data = pickle.dumps(data)
+  c.data[key] = value
   c.put()
-  return HttpResponse("data is %r" % data)
+  return HttpResponse("data is %r" % c.data)
 
 
 def list(request):
@@ -35,3 +31,11 @@ def list(request):
              'charts': charts,
             }
   return render_to_response('stats/list.html', context)
+
+
+def show(request, id):
+  chart = models.Chart.get_by_id(id)
+  if chart is None:
+    raise Http404
+  context = {'chart': chart}
+  return render_to_response('stats/show.html', context)
