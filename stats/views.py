@@ -19,8 +19,10 @@ def index(request):
 
 def add(request, id, key, value):
   c = models.Chart.get_or_create(id)
-  data = pickle.loads(c.data)
+  data = {}
+  if c.data:
+    data = pickle.loads(c.data)
   data[key] = value
   c.data = pickle.dumps(data)
   c.put()
-  return HttpResponse("data is " + data)
+  return HttpResponse("data is %r" % data)
