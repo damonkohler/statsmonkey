@@ -1,5 +1,9 @@
 import pickle
 import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), 'third_party'))
+
 
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response
@@ -11,7 +15,7 @@ from stats import models
 
 
 def index(request):
-  return HttpResponseRedirect('list')
+  return HttpResponseRedirect('list') 
   #data = [2, 4, 7, 7, 4, 6, 8, 2, 1, 2, 5, 8, 8]
   #chart = google_chart_api.LineChart(data)
   #context = {'chart': chart.display.Img(300, 200)}
@@ -19,9 +23,9 @@ def index(request):
 
 
 def add(request, id, key, value):
-  c = models.Chart.get_or_create(id)
-  c.data[int(key)] = float(value)
-  c.put()
+  chart = models.Chart.get_or_create(id)
+  chart.data[key] = value
+  chart.put()
   context = {'chart': chart}
   return render_to_response('stats/add.html', context)
 
