@@ -19,10 +19,11 @@ def index(request):
 
 
 def add(request, id, key, value):
-  c = models.Chart.get_or_create(id)
-  c.data[key] = value
-  c.put()
-  return HttpResponse("data is %r" % c.data)
+  chart = models.Chart.get_or_create(id)
+  chart.data[key] = value
+  chart.put()
+  context = {'chart': chart}
+  return render_to_response('stats/add.html', context)
 
 
 def list(request):
