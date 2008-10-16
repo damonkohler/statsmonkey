@@ -1,13 +1,4 @@
 {% load stats %}
 {% extends 'stats/_base.html' %}
-
-{% block contents%}
-
-<h2>{{ chart.id }}</h2>
-
-{{ chart|image }}
-<br/>
-And the raw data:
-{{ chart.data }}
-
-{% endblock %}
+{% block title %}{{ chart.id }}{% endblock %}
+{% block contents %}{{ chart|image }}{% endblock %}

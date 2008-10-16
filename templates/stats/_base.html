@@ -3,13 +3,11 @@
 
 <html>
 <head>
-  {% block extrahead %}
-  {% endblock %}
+  <title>Stats Monkey - {% block title %}Awesome.{% endblock %}</title>
+  {% block extrahead %}{% endblock %}
 </head>
 <body>
-<h1>Stats Monkey</h1>
-{% block contents %}
-{% endblock %}
-{% include 'stats/_analytics.html' %}
+  {% block contents %}{% endblock %}
+  {% include 'stats/_analytics.html' %}
 </body>
 </html>

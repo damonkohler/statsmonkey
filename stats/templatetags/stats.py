@@ -25,3 +25,15 @@ def image(chart):
     values.append(value)
   chart = google_chart_api.LineChart(values)
   return chart.display.Img(300, 200)
+
+@register.filter
+def sparkline(chart):
+  """Get a sparkline image tag for this chart."""
+  values = []
+  keys = chart.data.keys()
+  keys.sort()
+  for key in keys:
+    value = float(chart.data[key])
+    values.append(value)
+  chart = google_chart_api.Sparkline(values)
+  return chart.display.Img(50, 15)

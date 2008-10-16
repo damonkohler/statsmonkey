@@ -1,16 +1,11 @@
 {% load stats %}
 {% extends 'stats/_base.html' %}
-
-{% block contents%}
-
-Right, so this is where you would see a list of charts.
-
-There are {{ num_charts }} charts
-
+{% block contents %}
+<p>Right, so this is the list of charts.</p>
+<p>There are {{ num_charts }} charts.</p>
 <ul>
 {% for chart in charts %}
-  <li><a href='{{ chart|chart_url }}'>{{ chart.id }}</a></li>
+  <li><a href='{{ chart|chart_url }}'>{{ chart.id }}</a>&nbsp;{{ chart|sparkline }}</li>
 {% endfor %}
 </ul>
-
 {% endblock %}
