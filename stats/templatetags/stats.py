@@ -1,6 +1,6 @@
 from django import template
 
-from graphy.backends import google_chart_api
+from third_party.graphy.backends import google_chart_api
 
 register = template.Library()
 

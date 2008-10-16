@@ -25,8 +25,6 @@ import os
 import sys
 import logging
 
-#sys.path.append('./third_party')
-
 from appengine_django import InstallAppengineHelperForDjango
 InstallAppengineHelperForDjango()
 
@@ -37,6 +35,11 @@ from google.appengine.ext.webapp import util
 import django.core.handlers.wsgi
 
 def main():
+  # Add third_party to our import search path.
+  DIR_PATH = os.path.abspath(os.path.dirname(__file__))
+  THIRD_PARTY = os.path.join(DIR_PATH, 'third_party')
+  sys.path = [THIRD_PARTY,] + sys.path
+
   # Create a Django application for WSGI.
   application = django.core.handlers.wsgi.WSGIHandler()
 
