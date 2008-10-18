@@ -22,6 +22,7 @@ def add(request, id, key, value):
   context = {'chart': chart}
   return render_to_response('stats/add.html', context)
 
+
 def list(request):
   charts = models.Chart.get_all()
   context = {'num_charts': len(charts),
@@ -39,10 +40,11 @@ def show(request, id):
 
 
 def get_secure_key(request, id):
-  user = users.get_current_user()
-  if user:
-    return HttpResponse(models.Chart.get_or_create(id).get_secure_key())
-  return HttpResponseRedirect(users.create_login_url('/'))
+  chart = models.Chart.get_or_create(id)
+  if chart.user is None or chart.user == users.get_current_user():
+    return HttpResponse(chart.get_secure_key())
+  raise Http404
+
 
 def secure_add(request, secure_key, id, key, value):
   chart = models.Chart.get_or_create(id)

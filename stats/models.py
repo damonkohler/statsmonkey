@@ -4,12 +4,14 @@ import uuid
 from django.http import HttpResponse
 from google.appengine.ext import db
 
+
 class Chart(db.Model):
   # TODO: rename id to name
   id = db.StringProperty(required=True)
   _pickled_data = db.BlobProperty()
   data = {}
   secure_key = db.StringProperty()
+  user = db.UserProperty()
 
   def put(self):
     self._pickle()
@@ -30,9 +32,9 @@ class Chart(db.Model):
 
   @classmethod
   def get_or_create(cls, id):
-    c = cls.get_by_id(id)
-    if c:
-      return c
+    chart = cls.get_by_id(id)
+    if chart:
+      return chart
     return cls(id=id)
 
   @classmethod
@@ -45,5 +47,6 @@ class Chart(db.Model):
   def get_secure_key(self):
     if self.secure_key is None:
       self.secure_key = str(uuid.uuid4())
+      self.user = users.get_current_user()
     self.put()
     return self.secure_key

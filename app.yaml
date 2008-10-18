@@ -6,6 +6,7 @@ api_version: 1
 handlers:
 - url: /secure/.*
   script: main.py
+  login: required
   secure: always
 - url: /.*
   script: main.py
