@@ -1,13 +1,14 @@
 {% load stats %}
 {% extends 'stats/_base.html' %}
 {% block contents %}
-<p>Welcome to Stats Moneky. To create a chart, add data to it or secure it.</p>
+<div style="float: right;"><img src="http://www.kyoob.net/drufiles/MustacheMonkey.jpg"></div>
+<p>Welcome to Stats Monkey. To create a chart, add data to it or secure it.</p>
 <ul>
   <li>To add data to a chart: http://stats-monkey.appspot.com/add/chart_name/key/value</li>
   <li>To secure a chart and get its secure key: http://stats-monkey.appspot.com/secure/chart_name</li>
   <li>To add data to a secure chart: http://stats-monkey.appspot.com/secure/add/secure_key/chart_name/key/value</li>
 </ul>
-<p>There are {{ num_charts }} charts.</p>
+<p>There are currently {{ num_charts }} charts.</p>
 <ul>
 {% for chart in charts %}
   <li><a href='{{ chart|chart_url }}'>{{ chart.id }}</a>&nbsp;{{ chart|sparkline }}</li>
