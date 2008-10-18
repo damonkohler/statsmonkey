@@ -1,4 +1,5 @@
 import pickle
+import uuid
 
 from django.http import HttpResponse
 from google.appengine.ext import db
@@ -8,14 +9,15 @@ class Chart(db.Model):
   id = db.StringProperty(required=True)
   _pickled_data = db.BlobProperty()
   data = {}
+  secure_key = db.StringProperty()
 
   def put(self):
     self._pickle()
     super(Chart, self).put()
-  
+
   def _pickle(self):
     self._pickled_data = pickle.dumps(self.data)
-    
+
   def _unpickle(self):
     self.data = pickle.loads(self._pickled_data)
 
@@ -39,4 +41,9 @@ class Chart(db.Model):
     for chart in charts:
       chart._unpickle()
     return charts
-    
+
+  def get_secure_key(self):
+    if self.secure_key is None:
+      self.secure_key = str(uuid.uuid4())
+    self.put()
+    return self.secure_key

@@ -19,4 +19,6 @@ urlpatterns = patterns('stats.views',
   (r'^add/(\w+)/(\d+)/([0-9.\-]+)/?', 'add'),
   (r'^list/?', 'list'),
   (r'^show/(\w+)/?', 'show'),
+  (r'^secure/add/([0-9a-f\-]+)/(\w+)/(\d+)/([0-9.\-]+)/?', 'secure_add'),
+  (r'^secure/(\w+)/?', 'get_secure_key'),
 )
